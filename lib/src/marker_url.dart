@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:map_launcher/src/models.dart';
 import 'package:map_launcher/src/utils.dart';
 
@@ -249,6 +250,17 @@ String getMapMarkerUrl({
       );
 
     case MapType.sygicTruck:
+      // Documentation:
+      // https://www.sygic.com/developers/professional-navigation-sdk/introduction
+      return Utils.buildUrl(
+        url:
+            'com.sygic.aura://coordinate|${coords.longitude}|${coords.latitude}|show',
+        queryParams: {
+          ...(extraParams ?? {}),
+        },
+      );
+
+    case MapType.sygic:
       // Documentation:
       // https://www.sygic.com/developers/professional-navigation-sdk/introduction
       return Utils.buildUrl(

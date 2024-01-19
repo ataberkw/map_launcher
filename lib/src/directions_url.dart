@@ -278,6 +278,17 @@ String getMapDirectionsUrl({
         },
       );
 
+    case MapType.sygic:
+      // Documentation:
+      // https://www.sygic.com/developers/professional-navigation-sdk/introduction
+      return Utils.buildUrl(
+        url:
+            'com.sygic.aura://coordinate|${destination.longitude}|${destination.latitude}|drive',
+        queryParams: {
+          ...(extraParams ?? {}),
+        },
+      );
+
     case MapType.flitsmeister:
       if (Platform.isIOS) {
         return Utils.buildUrl(

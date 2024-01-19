@@ -67,6 +67,9 @@ enum MapType {
   /// Sygic Truck
   sygicTruck,
 
+  /// Sygic
+  sygic,
+
   /// Flitsmeister
   /// Only available on Android
   flitsmeister,
